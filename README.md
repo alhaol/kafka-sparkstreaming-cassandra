@@ -119,7 +119,7 @@ echo $UID
 ### Clone this repository
 
 ```
-git clone https://github.com/Yannael/kafka-sparkstreaming-cassandra
+git clone https://github.com/alhaol/kafka-sparkstreaming-cassandra
 ```
 
 ### Build

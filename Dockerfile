@@ -1,13 +1,13 @@
 #Container for Kafka - Spark streaming - Cassandra
 #IMPORTANT: If you wish to share folder between your host and this container, make sure the UID for user guest is the same as your UID
-#Check https://github.com/Yannael/brufence/blob/master/docker/streaming/README.md for details
-FROM centos:centos6
+#Check https://github.com/alhaol/brufence/blob/master/docker/streaming/README.md for details
+FROM centos
 
 RUN yum -y update;
 RUN yum -y clean all;
 
 # Install basic tools
-RUN yum install -y  wget dialog curl sudo lsof vim axel telnet nano openssh-server openssh-clients bzip2 passwd tar bc git unzip
+RUN yum install -y  wget dialog curl sudo lsof vim telnet nano openssh-server openssh-clients bzip2 passwd tar bc git unzip
 
 #Install Java
 RUN yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel 
@@ -29,9 +29,9 @@ RUN mv spark-2.1.1-bin-hadoop2.7 spark
 ENV SPARK_HOME $HOME/spark
 
 #Install Kafka
-RUN wget http://mirrors.dotsrc.org/apache/kafka/0.10.2.1/kafka_2.11-0.10.2.1.tgz
-RUN tar xvzf kafka_2.11-0.10.2.1.tgz
-RUN mv kafka_2.11-0.10.2.1 kafka
+RUN wget http://mirrors.dotsrc.org/apache/kafka/2.2.2/kafka_2.12-2.2.2.tgz
+RUN tar xvzf kafka_2.12-2.2.2.tgz
+RUN mv kafka_2.12-2.2.2 kafka
 
 ENV PATH $HOME/spark/bin:$HOME/spark/sbin:$HOME/kafka/bin:$PATH
 
